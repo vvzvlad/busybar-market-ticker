@@ -70,24 +70,39 @@ function thousands(value: number): string {
   return value < 0 ? `-${out}` : out;
 }
 
-/** The name and the change on the top line, the price large under them; "--" without a quote. */
+/** A triangle 5 pixels wide pointing up or down, as XPM2 rows; the fonts have no ▲▼. */
+const ARROW_UP = ["..x..", ".xxx.", "xxxxx"];
+
+/**
+ * The price large, right-aligned; on the left small the name, and under it the change after an arrow up or down. The
+ * price and the change are green on a rise and red on a fall; "--" without a quote.
+ */
 function frame(ticker: Ticker, quote: Quote | null): Element[] {
   const color = quote === null ? WHITE : quote.change < 0 ? RED : GREEN;
-  const change = quote === null ? "--" : `${quote.change < 0 ? "" : "+"}${quote.change.toFixed(ticker.decimals)}%`;
-  return [
-    { type: "text", id: "name", text: ticker.name, font: "small", color: WHITE, x: 0, y: -1, align: "top_left" },
-    { type: "text", id: "change", text: change, font: "small", color, x: 72, y: -1, align: "top_right" },
+  // From 10 % whole percents: "+12.4%" would touch a six-digit price.
+  const decimals = quote !== null && Math.abs(Number(quote.change.toFixed(ticker.decimals))) >= 10 ? 0 : ticker.decimals;
+  const change = quote === null ? "--" : `${quote.change < 0 ? "" : "+"}${quote.change.toFixed(decimals)}%`;
+  const elements: Element[] = [
     {
       type: "text",
       id: "price",
-      text: quote === null ? "--" : thousands(quote.price),
-      font: "bold",
+      // From 100,000 the separator is dropped: "123,456" would run into the name and the change on the left.
+      text: quote === null ? "--" : Math.round(quote.price) >= 100000 ? String(Math.round(quote.price)) : thousands(quote.price),
+      font: "extra_large",
       color,
-      x: 0,
-      y: 6,
-      align: "top_left",
+      x: 72,
+      y: 8,
+      align: "mid_right",
     },
+    { type: "text", id: "name", text: ticker.name, font: "small", color: WHITE, x: 0, y: 4, align: "mid_left" },
+    { type: "text", id: "change", text: change, font: "small", color, x: quote === null ? 0 : 6, y: 12, align: "mid_left" },
   ];
+  if (quote !== null) {
+    const rows = quote.change < 0 ? ARROW_UP.slice().reverse() : ARROW_UP;
+    const data = ["! XPM2", "5 3 2 1", ". c none", `x c ${color.slice(0, 7)}`, ...rows].join("\n");
+    elements.push({ type: "xpmbitmap", id: "arrow", data, x: 0, y: 11, align: "top_left" });
+  }
+  return elements;
 }
 
 /**

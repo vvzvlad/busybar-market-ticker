@@ -4,6 +4,6 @@
   "name": "Market Ticker",
   "version": "0.1.0",
   "api_version": "27.12.0",
-  "description": "Stocks, crypto and currency rates in a scrolling ticker.",
+  "description": "Stock and crypto prices in large digits, gains in green and losses in red.",
   "author": "vvzvlad"
 }

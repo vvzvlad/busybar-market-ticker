@@ -1,12 +1,12 @@
 # Market Ticker
 
-Stocks, crypto and currency rates in a scrolling ticker.
+Stock and crypto prices in large digits, gains in green and losses in red.
 
 A JavaScript app for [BUSY Bar](https://busy.app). Work in progress.
 
 ## What it does
 
-- The front display scrolls a ticker such as `S&P 500 7,542 -0.66%  BTC 68,880 -4.1%`, gains in green and losses in red.
+- The front display shows the tickers in turn: the price in large digits, the name and the change with an arrow up or down small on the left, gains in green and losses in red.
 - The wheel switches to a single ticker with its chart for the day.
 - The back display shows a table of all your tickers.
 - Settings: the list of tickers and how often to update.
