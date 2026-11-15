@@ -1,6 +1,6 @@
 {
   "category": "info-feeds",
-  "short_description": "The S&P 500 and Bitcoin in large digits, gains in green and losses in red.",
-  "description": "## What you see\n\nThe price in large digits, and on the left the name and the day's change after an up or down arrow. Gains are green, losses red. The S&P 500 and Bitcoin take turns every five seconds.\n\n## Data\n\nYahoo Finance for the S&P 500 and [CoinGecko](https://www.coingecko.com/en/api) for Bitcoin, no keys needed, checked every five minutes.",
-  "changelog": "First release: the S&P 500 and Bitcoin in large digits, with up and down arrows."
+  "short_description": "Stocks, indices, crypto and currencies in large digits, with the day's chart and green and red.",
+  "description": "## What you see\n\n- Your tickers take turns every five seconds: the price in large digits, and on the left the name and the day's change after an up or down arrow. Gains are green, losses red.\n- Turn the wheel to pick a ticker and hold it; after half a minute without a turn they take turns again. Press **OK** to see the held ticker's chart for the day, and again to go back.\n- The back display shows a table of all your tickers with their prices and the day's change.\n- Without a connection the last prices stay on the display, dimmed, with a red cross in the corner.\n\n## Settings\n\n- Up to six Yahoo Finance symbols separated by commas, such as ^GSPC for the S&P 500, AAPL, BTC-USD or EURUSD=X, each with an optional label: ^GSPC=S&P 500. By default the S&P 500 and Bitcoin.\n- The minutes between updates, 5 by default.\n\n## Data\n\nYahoo Finance chart data, no key needed.",
+  "changelog": "First release: up to six tickers from Yahoo Finance in large digits, the day's chart, a table on the back display."
 }

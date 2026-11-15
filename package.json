@@ -2,7 +2,7 @@
   "name": "busybar-market-ticker",
   "private": true,
   "version": "0.1.0",
-  "description": "Stock and crypto prices in large digits, gains in green and losses in red.",
+  "description": "Stocks, indices, crypto and currencies in large digits, gains in green and losses in red.",
   "author": "vvzvlad",
   "type": "module",
   "scripts": {
