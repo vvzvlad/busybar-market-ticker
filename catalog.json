@@ -1,0 +1,6 @@
+{
+  "category": "info-feeds",
+  "short_description": "The S&P 500 and Bitcoin in large digits, gains in green and losses in red.",
+  "description": "## What you see\n\nThe price in large digits, and on the left the name and the day's change after an up or down arrow. Gains are green, losses red. The S&P 500 and Bitcoin take turns every five seconds.\n\n## Data\n\nYahoo Finance for the S&P 500 and [CoinGecko](https://www.coingecko.com/en/api) for Bitcoin, no keys needed, checked every five minutes.",
+  "changelog": "First release: the S&P 500 and Bitcoin in large digits, with up and down arrows."
+}
